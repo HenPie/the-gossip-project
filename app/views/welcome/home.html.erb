@@ -1,0 +1,12 @@
+<h1 class="text-center">Welcome <%= @user.first_name %> !</h1>
+<h2>Voici la liste des potins</h2>
+<div class="card-columns mx-auto mt-3">
+<% @gossip_array.each do |gossip| %>
+  <div class="card border-dark mb-3" style="max-width: 20rem;">
+    <div class="card-header"><%= User.find(gossip.user_id).first_name %></div>
+    <div class="card-body text-dark">
+      <h5 class="card-title"><%= gossip.title %></h5>
+      <p class="card-text"><a href ='/gossip/<%=gossip.id%>'>Voir plus...</a></p>
+    </div>
+  </div>
+<% end %>
